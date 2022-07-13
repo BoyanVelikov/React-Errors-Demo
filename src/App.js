@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import ErrorBoundary from './ErrorBoundary';
+import UserProfile from './UserProfile';
+
+const userData = {
+  username: 'max',
+  name: 'Max',
+  age: 22,
+  city: 'London'
+};
+
+const {username, name, age, city} = userData;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <ErrorBoundary>
+        <UserProfile
+        username={username}
+        name={name}
+        age={age}
+        city={city}/>
+      </ErrorBoundary>
     </div>
   );
 }
